@@ -1,0 +1,194 @@
+.worksPage {
+  padding-top: 0;
+  background-color: var(--primary-bg);
+}
+
+.pageHeader {
+  padding: 4rem 0;
+  background-color: var(--secondary-bg);
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.pageSubtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.worksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 3rem 0;
+}
+
+.workCard {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  background-color: var(--card-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  min-height: 400px;
+}
+
+.workCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px var(--gold-glow);
+  border-color: var(--border-gold-strong);
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.workImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: brightness(0.85);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 60%,
+    rgba(184, 132, 47, 0.15) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.workCard:hover .workImage {
+  transform: scale(1.05);
+}
+
+.workCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.workInfo {
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--border-gold);
+  background-color: var(--card-bg);
+  color: var(--text-light);
+}
+
+.workTag {
+  font-family: var(--font-subheading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.workTitle {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  color: var(--text-light);
+  font-weight: 700;
+}
+
+.workDescription {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.9;
+}
+
+.viewBtn {
+  align-self: flex-start;
+  background-color: transparent;
+  border: 1px solid var(--border-gold-strong);
+  color: var(--gold-soft);
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.viewBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.viewBtn:hover {
+  color: #050807;
+  border-color: transparent;
+  box-shadow: 0 8px 25px var(--gold-glow);
+}
+
+.viewBtn:hover::before {
+  transform: scaleX(1);
+}
+
+/* Alternating layout */
+.workCard:nth-child(even) {
+  grid-template-columns: 2fr 3fr;
+}
+.workCard:nth-child(even) .imageWrapper {
+  order: 2;
+}
+.workCard:nth-child(even) .workInfo {
+  order: 1;
+  border-left: none;
+  border-right: 1px solid var(--border-gold);
+}
+
+@media (max-width: 992px) {
+  .workCard, .workCard:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+  
+  .workCard:nth-child(even) .imageWrapper {
+    order: 1;
+  }
+  .workCard:nth-child(even) .workInfo {
+    order: 2;
+    border-right: none;
+    border-left: 1px solid var(--border-gold);
+    border-top: 1px solid var(--border-gold);
+  }
+  
+  .imageWrapper {
+    height: 300px;
+  }
+  
+  .workInfo {
+    padding: 2.5rem 2rem;
+    border-left: none;
+    border-top: 1px solid var(--border-gold);
+  }
+}

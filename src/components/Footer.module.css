@@ -1,0 +1,133 @@
+.footer {
+  background-color: var(--secondary-bg);
+  color: var(--text-light);
+  padding-top: 5rem;
+  border-top: 1px solid var(--border-gold);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footerText {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-gold);
+  transition: all 0.3s ease;
+}
+
+.socialIcons a:hover {
+  background: var(--gold-gradient);
+  color: #050807;
+  border-color: transparent;
+  box-shadow: 0 0 20px var(--gold-glow);
+  transform: translateY(-3px);
+}
+
+.footerTitle {
+  font-family: var(--font-subheading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  color: var(--gold-soft);
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footerTitle::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -8px;
+  left: 0;
+  background: var(--gold-gradient);
+}
+
+.footerIcon {
+  color: var(--gold-soft);
+  flex-shrink: 0;
+}
+
+.footerLinks ul, .footerContact ul {
+  list-style: none;
+}
+
+.footerLinks li {
+  margin-bottom: 0.9rem;
+}
+
+.footerLinks a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--gold-soft);
+  padding-left: 5px;
+}
+
+.footerContact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(217, 164, 65, 0.1);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footerText {
+    max-width: 100%;
+  }
+}

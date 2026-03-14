@@ -1,0 +1,77 @@
+.materialsPage {
+  padding-top: 0;
+  background-color: var(--primary-bg);
+}
+
+.pageHeader {
+  padding: 4rem 0;
+  background-color: var(--primary-bg);
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.pageSubtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.materialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.materialCard {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  background-color: var(--card-bg);
+  cursor: pointer;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.materialCard:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 25px var(--gold-glow);
+  border-color: var(--border-gold-strong);
+  transform: translateY(-6px);
+}
+
+.texturePreview {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.textureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: brightness(0.85);
+}
+
+.materialCard:hover .textureImage {
+  transform: scale(1.15);
+  filter: brightness(1);
+}
+
+.cardInfo {
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border-gold);
+  background-color: var(--card-bg);
+}
+
+.materialName {
+  font-family: var(--font-subheading);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
