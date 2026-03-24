@@ -25,17 +25,25 @@
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0px;
-  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  margin-left: -9rem; /* Pushes the logo further left */
+}
+
+.logoImage {
+  height: 50px;
+  width: auto;
+  display: block;
+  mix-blend-mode: screen;
+  transform: scale(1.8);
+  transform-origin: left center;
 }
 
 .desktopMenu {
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  margin-right: -6rem; /* Pushes the menu items further right */
 }
 
 .navLink {
@@ -131,5 +139,16 @@
 
   .mobileToggle {
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 0;
+  }
+  
+  .logoImage {
+    transform: scale(1.2);
+    transform-origin: left center;
   }
 }

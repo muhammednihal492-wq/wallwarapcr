@@ -8,7 +8,7 @@ export default function Footer() {
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.footerAbout}>
           <Link to="/" className={styles.logo}>
-            Wall<span className="text-highlight">Wrap</span>
+            <img src="/rr.png" alt="Wallwrap Logo" className={styles.logoImage} />
           </Link>
           <p className={styles.footerText}>
             Transforming interiors with advanced wrapping technology. High-quality materials for stylish, durable interior finishes without demolition.

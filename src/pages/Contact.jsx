@@ -29,8 +29,8 @@ export default function Contact() {
         <div className={`container ${styles.contactGrid}`}>
           <motion.div 
             className={styles.contactInfoWrapper}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h2 className={styles.sectionTitle}>Contact Information</h2>
@@ -73,8 +73,8 @@ export default function Contact() {
 
           <motion.div 
             className={styles.contactFormWrapper}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <form className={styles.form} onSubmit={e => e.preventDefault()}>

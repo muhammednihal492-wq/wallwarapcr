@@ -176,4 +176,25 @@
     flex-direction: column;
     gap: 0;
   }
+  
+  .contactFormWrapper {
+    padding: 1.5rem;
+  }
+
+  .contactGrid {
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .pageHeader {
+    padding: 3rem 0 2rem;
+  }
+  
+  .contactPage {
+    padding-top: 80px;
+  }
 }

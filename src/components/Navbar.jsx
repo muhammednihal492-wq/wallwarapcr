@@ -56,7 +56,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.navContainer}`}>
         <Link to="/" onClick={() => handleNavClick('/')} className={styles.logo}>
-          Wall<span className="text-highlight">Wrap</span>
+          <img src="/rr.png" alt="Wallwrap Logo" className={styles.logoImage} />
         </Link>
 
         {/* Desktop Menu */}
@@ -71,7 +71,6 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className={`btn btn-primary ${styles.ctaBtn}`}>Get a Quote</Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -91,7 +90,6 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" onClick={() => setIsOpen(false)} className={`btn btn-primary ${styles.mobileCtaBtn}`}>Get a Quote</Link>
         </div>
       </div>
     </nav>

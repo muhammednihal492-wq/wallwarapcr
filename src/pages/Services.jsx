@@ -45,18 +45,6 @@ export default function Services() {
       icon: <Columns size={40} className={styles.icon} />,
       image: "/assets/service_architectural.png",
       advantages: ["Endless design possibilities", "Durable scratch-resistance", "Cost-effective remodeling"]
-    },
-    {
-      title: "Outdoor Tinting",
-      icon: <Shield size={40} className={styles.icon} />,
-      image: "/assets/service_outdoor_tinting.png",
-      advantages: ["Blocks harmful UV rays", "Enhances exterior appearance", "Reduces cooling costs"]
-    },
-    {
-      title: "Indoor Tinting",
-      icon: <Home size={40} className={styles.icon} />,
-      image: "/assets/service_indoor_tinting.png",
-      advantages: ["Reduces interior glare", "Protects furniture from fading", "Increases privacy and comfort"]
     }
   ];
 
