@@ -85,6 +85,26 @@
 @media (max-width: 768px) {
   .guaranteesGrid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+  
+  .guaranteeCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .iconOuter {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
   }
 }

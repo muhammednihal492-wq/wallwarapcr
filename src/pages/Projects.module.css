@@ -95,5 +95,19 @@
 @media (max-width: 768px) {
   .projectsGrid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+  
+  .sliderContainer {
+    height: 250px;
+  }
+  
+  .projectInfo {
+    padding: 1.5rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.35rem;
   }
 }

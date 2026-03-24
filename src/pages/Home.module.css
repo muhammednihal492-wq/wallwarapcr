@@ -109,16 +109,12 @@
 
 .aboutImageWrapper {
   position: relative;
+  padding: 1.5rem;
+  border: 1px solid var(--border-gold-strong);
 }
 
 .imageBackdrop {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--border-gold-strong);
-  z-index: 1;
+  display: none;
 }
 
 .aboutImage {
@@ -126,7 +122,8 @@
   height: auto;
   position: relative;
   z-index: 2;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  display: block;
 }
 
 .floatingBadge {
@@ -227,5 +224,25 @@
 @media (max-width: 768px) {
   .hero {
     background-position: 70% center;
+    min-height: 100svh;
+  }
+  
+  .heroContent {
+    margin-top: 0;
+  }
+  
+  .title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+  
+  .heroEyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
   }
 }

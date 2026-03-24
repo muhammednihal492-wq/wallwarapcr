@@ -46,13 +46,16 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--primary-bg);
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -192,3 +192,42 @@
     border-top: 1px solid var(--border-gold);
   }
 }
+
+@media (max-width: 768px) {
+  .worksContainer {
+    gap: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .workCard {
+    min-height: auto;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+
+  .workInfo {
+    padding: 2rem 1.5rem;
+  }
+
+  .workTag {
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .workTitle {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .workDescription {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .viewBtn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}

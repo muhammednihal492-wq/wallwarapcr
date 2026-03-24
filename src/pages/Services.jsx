@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styles from './Services.module.css';
-import { ChefHat, Bath, Grid, DoorOpen, LayoutDashboard, SunMedium, GripHorizontal, PaintBucket, Columns, Maximize2 } from 'lucide-react';
+import { ChefHat, Bath, Grid, DoorOpen, LayoutDashboard, SunMedium, GripHorizontal, PaintBucket, Columns, Maximize2, Home, Shield } from 'lucide-react';
 
 export default function Services() {
   const services = [
@@ -39,6 +39,24 @@ export default function Services() {
       icon: <SunMedium size={40} className={styles.icon} />,
       image: "/assets/service_window.png",
       advantages: ["Reduces heat and glare", "Improves privacy", "Energy efficient"]
+    },
+    {
+      title: "Architectural Film",
+      icon: <Columns size={40} className={styles.icon} />,
+      image: "/assets/service_architectural.png",
+      advantages: ["Endless design possibilities", "Durable scratch-resistance", "Cost-effective remodeling"]
+    },
+    {
+      title: "Outdoor Tinting",
+      icon: <Shield size={40} className={styles.icon} />,
+      image: "/assets/service_outdoor_tinting.png",
+      advantages: ["Blocks harmful UV rays", "Enhances exterior appearance", "Reduces cooling costs"]
+    },
+    {
+      title: "Indoor Tinting",
+      icon: <Home size={40} className={styles.icon} />,
+      image: "/assets/service_indoor_tinting.png",
+      advantages: ["Reduces interior glare", "Protects furniture from fading", "Increases privacy and comfort"]
     }
   ];
 
