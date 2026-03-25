@@ -42,7 +42,7 @@ export default function Footer() {
             </li>
             <li>
               <MapPin size={18} className={styles.footerIcon} />
-              <span>Sharjah Media City, Sharjah, U.A.E</span>
+              <span>SHAMS, U.A.E</span>
             </li>
           </ul>
           <div className={styles.developerLinkWrapper}>
