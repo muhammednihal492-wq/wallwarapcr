@@ -21,7 +21,7 @@ export default function Contact() {
     e.preventDefault();
     const text = `New Request from wallwrapcreations.com:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interested: ${formData.service}\n\nProject Details:\n${formData.message}`;
     const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/917034810509?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/971589944602?text=${encodedText}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -64,7 +64,7 @@ export default function Contact() {
                 <div className={styles.iconBox}><Phone size={24} /></div>
                 <div>
                   <h4 className={styles.infoTitle}>Phone</h4>
-                  <a href="tel:+917034810509" className={styles.infoText} style={{ display: 'block' }}>+91 7034810509</a>
+                  <a href="tel:+971589944602" className={styles.infoText} style={{ display: 'block' }}>+971589944602</a>
                 </div>
               </div>
               <div className={styles.infoItem}>
@@ -78,7 +78,7 @@ export default function Contact() {
                 <div className={styles.iconBox}><FaWhatsapp size={24} /></div>
                 <div>
                   <h4 className={styles.infoTitle}>WhatsApp</h4>
-                  <a href="https://wa.me/917034810509" target="_blank" rel="noopener noreferrer" className={styles.infoText} style={{ display: 'block' }}>+91 7034810509</a>
+                  <a href="https://wa.me/971589944602" target="_blank" rel="noopener noreferrer" className={styles.infoText} style={{ display: 'block' }}>+971 58 994 4602</a>
                 </div>
               </div>
               <div className={styles.infoItem}>

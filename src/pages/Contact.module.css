@@ -21,7 +21,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  padding: 4rem 0;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .contactInfoWrapper {
@@ -182,8 +183,14 @@
   }
 
   .contactGrid {
-    padding: 2rem 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     gap: 2rem;
+  }
+
+  .iconBox {
+    width: 45px;
+    height: 45px;
   }
 
   .sectionTitle {

@@ -12,9 +12,9 @@ export default function Footer() {
             Transforming interiors with advanced wrapping technology. High-quality materials for stylish, durable interior finishes without demolition.
           </p>
           <div className={styles.socialIcons}>
-            <a href="https://wa.me/917034810509" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={20} /></a>
+            <a href="https://wa.me/971589944602" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={20} /></a>
             <a href="https://www.instagram.com/wallwrapcreations?igsh=MTMydDUydzMyNGxlbg==" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
-            <a href="tel:+917034810509" aria-label="Phone Call"><Phone size={20} /></a>
+            <a href="tel:+971589944602" aria-label="Phone Call"><Phone size={20} /></a>
           </div>
         </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
           <ul>
             <li>
               <Phone size={18} className={styles.footerIcon} />
-              <span>+91 7034810509</span>
+              <span>+971589944602</span>
             </li>
             <li>
               <Mail size={18} className={styles.footerIcon} />
@@ -42,7 +42,7 @@ export default function Footer() {
             </li>
             <li>
               <MapPin size={18} className={styles.footerIcon} />
-              <span>123 Design Avenue, Modern City, NY 10001</span>
+              <span>Sharjah Media City, Sharjah, U.A.E</span>
             </li>
           </ul>
           <div className={styles.developerLinkWrapper}>
