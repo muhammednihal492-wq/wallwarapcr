@@ -1,22 +1,20 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from 'lucide-react';
-
+import { Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.footerAbout}>
-          <Link to="/" className={styles.logo}>
-            <img src="/rr.png" alt="Wallwrap Logo" className={styles.logoImage} />
-          </Link>
+
           <p className={styles.footerText}>
             Transforming interiors with advanced wrapping technology. High-quality materials for stylish, durable interior finishes without demolition.
           </p>
           <div className={styles.socialIcons}>
-            <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-            <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
-            <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
+            <a href="https://wa.me/917034810509" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={20} /></a>
+            <a href="https://www.instagram.com/wallwrapcreations?igsh=MTMydDUydzMyNGxlbg==" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
+            <a href="tel:+917034810509" aria-label="Phone Call"><Phone size={20} /></a>
           </div>
         </div>
 
@@ -28,7 +26,6 @@ export default function Footer() {
             <li><Link to="/#projects">Projects</Link></li>
             <li><Link to="/#guarantees">Guarantees</Link></li>
             <li><Link to="/#materials">Materials</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -37,22 +34,27 @@ export default function Footer() {
           <ul>
             <li>
               <Phone size={18} className={styles.footerIcon} />
-              <span>+1 (555) 123-4567</span>
+              <span>+91 7034810509</span>
             </li>
             <li>
               <Mail size={18} className={styles.footerIcon} />
-              <span>hello@wallwrap.com</span>
+              <span>contact@wallwrapcreations.com</span>
             </li>
             <li>
               <MapPin size={18} className={styles.footerIcon} />
               <span>123 Design Avenue, Modern City, NY 10001</span>
             </li>
           </ul>
+          <div className={styles.developerLinkWrapper}>
+            <a href="https://www.instagram.com/intellex.web?igsh=MXc4Z2Uwd243OHpqdA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className={styles.highlightLink}>
+              Meet the Developers <span className={styles.pulse}></span>
+            </a>
+          </div>
         </div>
       </div>
       <div className={styles.footerBottom}>
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} WallWrap. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Wallwrap Creations LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -1,8 +1,30 @@
 import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, Instagram } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { useState } from 'react';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const text = `New Request from wallwrapcreations.com:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interested: ${formData.service}\n\nProject Details:\n${formData.message}`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/917034810509?text=${encodedText}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className={styles.contactPage}>
       <div className={styles.pageHeader}>
@@ -42,30 +64,30 @@ export default function Contact() {
                 <div className={styles.iconBox}><Phone size={24} /></div>
                 <div>
                   <h4 className={styles.infoTitle}>Phone</h4>
-                  <p className={styles.infoText}>+1 (555) 123-4567</p>
+                  <a href="tel:+917034810509" className={styles.infoText} style={{ display: 'block' }}>+91 7034810509</a>
                 </div>
               </div>
               <div className={styles.infoItem}>
                 <div className={styles.iconBox}><Mail size={24} /></div>
                 <div>
                   <h4 className={styles.infoTitle}>Email</h4>
-                  <p className={styles.infoText}>hello@wallwrap.com</p>
+                  <a href="mailto:contact@wallwrapcreations.com" className={styles.infoText} style={{ display: 'block' }}>contact@wallwrapcreations.com</a>
                 </div>
               </div>
               <div className={styles.infoItem}>
-                <div className={styles.iconBox}><MapPin size={24} /></div>
+                <div className={styles.iconBox}><FaWhatsapp size={24} /></div>
                 <div>
-                  <h4 className={styles.infoTitle}>Office Address</h4>
-                  <p className={styles.infoText}>123 Design Avenue, Modern City, NY 10001</p>
+                  <h4 className={styles.infoTitle}>WhatsApp</h4>
+                  <a href="https://wa.me/917034810509" target="_blank" rel="noopener noreferrer" className={styles.infoText} style={{ display: 'block' }}>+91 7034810509</a>
                 </div>
               </div>
               <div className={styles.infoItem}>
                 <div className={styles.iconBox}>
-                  <div className={styles.companyLogo}>WW</div>
+                  <Instagram size={24} />
                 </div>
                 <div>
-                  <h4 className={styles.infoTitle}>Company Details</h4>
-                  <p className={styles.infoText}>WallWrap Premium Interiors LLC</p>
+                  <h4 className={styles.infoTitle}>Instagram</h4>
+                  <a href="https://www.instagram.com/wallwrapcreations?igsh=MTMydDUydzMyNGxlbg==" target="_blank" rel="noopener noreferrer" className={styles.infoText} style={{ display: 'block' }}>@wallwrapcreations</a>
                 </div>
               </div>
             </div>
@@ -77,21 +99,34 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form className={styles.form} onSubmit={e => e.preventDefault()}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               <h3 className={styles.formTitle}>Send a Message</h3>
               <div className={styles.inputGroup}>
-                <input type="text" placeholder="Your Name" required className={styles.input} />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required className={styles.input} />
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <input type="email" placeholder="Email Address" required className={styles.input} />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" required className={styles.input} />
                 </div>
                 <div className={styles.inputGroup}>
-                  <input type="tel" placeholder="Phone Number" required className={styles.input} />
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" required className={styles.input} />
                 </div>
               </div>
               <div className={styles.inputGroup}>
-                <textarea placeholder="Tell us about your project..." rows="5" required className={styles.textarea}></textarea>
+                <select name="service" value={formData.service} onChange={handleChange} required className={styles.input}>
+                  <option value="" disabled>Select Service Interested</option>
+                  <option value="Kitchen Wrapping" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Kitchen Wrapping</option>
+                  <option value="Bathroom Wrapping" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Bathroom Wrapping</option>
+                  <option value="Wardrobe Wrapping" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Wardrobe Wrapping</option>
+                  <option value="Door Wrapping" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Door Wrapping</option>
+                  <option value="Flooring" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Flooring</option>
+                  <option value="Window Tinting" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Window Tinting</option>
+                  <option value="Architectural Film" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Architectural Film</option>
+                  <option value="Other Services" style={{ backgroundColor: '#050807', color: '#EAEAEA' }}>Other Services</option>
+                </select>
+              </div>
+              <div className={styles.inputGroup}>
+                <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your project..." rows="5" required className={styles.textarea}></textarea>
               </div>
               <button type="submit" className={`btn btn-primary ${styles.submitBtn}`}>Send Request</button>
             </form>
@@ -99,18 +134,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className={styles.mapSection}>
-        <iframe 
-          title="Google Maps Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3022.1839488344583!2d-73.9877318!3d40.758895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzMyLjAiTiA3M8KwNTknMTUuOCJX!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen="" 
-          loading="lazy"
-        ></iframe>
-      </section>
+
     </div>
   );
 }
