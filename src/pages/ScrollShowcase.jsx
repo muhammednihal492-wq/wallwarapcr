@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import styles from './ScrollShowcase.module.css';
 
 export default function ScrollShowcase() {
@@ -140,17 +141,9 @@ export default function ScrollShowcase() {
   });
 
   // Narrative Text Overlays: maps scroll progress to opacity and translation y
-  const opacityStep1 = useTransform(scrollYProgress, [0.0, 0.05, 0.20, 0.25], [0, 1, 1, 0]);
-  const yStep1 = useTransform(scrollYProgress, [0.0, 0.05, 0.20, 0.25], [40, 0, 0, -40]);
-
-  const opacityStep2 = useTransform(scrollYProgress, [0.25, 0.30, 0.45, 0.50], [0, 1, 1, 0]);
-  const yStep2 = useTransform(scrollYProgress, [0.25, 0.30, 0.45, 0.50], [40, 0, 0, -40]);
-
-  const opacityStep3 = useTransform(scrollYProgress, [0.50, 0.55, 0.70, 0.75], [0, 1, 1, 0]);
-  const yStep3 = useTransform(scrollYProgress, [0.50, 0.55, 0.70, 0.75], [40, 0, 0, -40]);
-
-  const opacityStep4 = useTransform(scrollYProgress, [0.75, 0.80, 0.92, 0.98], [0, 1, 1, 0]);
-  const yStep4 = useTransform(scrollYProgress, [0.75, 0.80, 0.92, 0.98], [40, 0, 0, -40]);
+  // Hero Step (visible initially, fades out as user scrolls)
+  const opacityHero = useTransform(scrollYProgress, [0.0, 0.15, 0.18], [1, 1, 0]);
+  const yHero = useTransform(scrollYProgress, [0.0, 0.15, 0.18], [0, 0, -40]);
 
   return (
     <div ref={containerRef} className={styles.scrollShowcaseContainer}>
@@ -181,56 +174,25 @@ export default function ScrollShowcase() {
 
           {/* Stepped Text Overlays */}
           <div className={styles.narrativeContainer}>
-            {/* Step 1 */}
+            {/* Introductory Hero Section */}
             <motion.div 
-              style={{ opacity: opacityStep1, y: yStep1, pointerEvents: 'none' }}
-              className={styles.narrativeCard}
+              style={{ opacity: opacityHero, y: yHero, pointerEvents: scrollYProgress.get() > 0.16 ? 'none' : 'auto' }}
+              className={styles.heroNarrative}
             >
-              <span className={styles.stepBadge}>01 / 04</span>
-              <h2 className={styles.stepTitle}>Precision Selection</h2>
-              <div className={styles.goldLine}></div>
-              <p className={styles.stepDescription}>
-                We consult, measure, and curate only the finest structural architectural wraps tailored to fit your home's unique interior styling and contours.
+              <div className={styles.heroEyebrow}>
+                Luxury Interior Transformations
+              </div>
+              <h1 className={styles.heroTitle}>
+                Transform Your Interiors with <span className="text-highlight">Premium</span> Wall Wrapping
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Upgrade your walls, furniture, and interiors without expensive renovation.
               </p>
-            </motion.div>
-
-            {/* Step 2 */}
-            <motion.div 
-              style={{ opacity: opacityStep2, y: yStep2, pointerEvents: 'none' }}
-              className={styles.narrativeCard}
-            >
-              <span className={styles.stepBadge}>02 / 04</span>
-              <h2 className={styles.stepTitle}>Expert Alignment</h2>
-              <div className={styles.goldLine}></div>
-              <p className={styles.stepDescription}>
-                Every corner and edge is perfectly prepared and aligned by our master craftsmen to guarantee a flawless substrate ready for wrapping.
-              </p>
-            </motion.div>
-
-            {/* Step 3 */}
-            <motion.div 
-              style={{ opacity: opacityStep3, y: yStep3, pointerEvents: 'none' }}
-              className={styles.narrativeCard}
-            >
-              <span className={styles.stepBadge}>03 / 04</span>
-              <h2 className={styles.stepTitle}>Thermal Bond Activation</h2>
-              <div className={styles.goldLine}></div>
-              <p className={styles.stepDescription}>
-                Using advanced heat-activated adhesive polymers, the wrapping binds structurally to the surface for an incredibly durable, heat, and water-resistant finish.
-              </p>
-            </motion.div>
-
-            {/* Step 4 */}
-            <motion.div 
-              style={{ opacity: opacityStep4, y: yStep4, pointerEvents: 'none' }}
-              className={styles.narrativeCard}
-            >
-              <span className={styles.stepBadge}>04 / 04</span>
-              <h2 className={styles.stepTitle}>A Luxury Finish</h2>
-              <div className={styles.goldLine}></div>
-              <p className={styles.stepDescription}>
-                Demolition-free, modern renovation complete. Enjoy premium wood grain, marble, or solid texture finishes with zero mess and long-lasting guarantees.
-              </p>
+              <div>
+                <a href="#services" className={`btn btn-primary ${styles.heroBtn}`}>
+                  Explore Our Services <ArrowRight className={styles.btnIcon} size={20} />
+                </a>
+              </div>
             </motion.div>
           </div>
 

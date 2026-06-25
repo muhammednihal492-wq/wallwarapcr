@@ -46,8 +46,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
-  overflow-x: hidden;
+html, body {
+  overflow-x: clip;
+  position: relative;
 }
 
 body {

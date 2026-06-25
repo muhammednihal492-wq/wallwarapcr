@@ -10,45 +10,11 @@ import LatestWorks from './LatestWorks';
 import ScrollShowcase from './ScrollShowcase';
 
 export default function Home() {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-  };
 
   return (
     <div className={styles.homeContainer}>
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay}></div>
-        <div className={`container ${styles.heroContent}`}>
-          <motion.div 
-            className={styles.heroText}
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeInUp} className={styles.heroEyebrow}>
-              Luxury Interior Transformations
-            </motion.div>
-            <motion.h1 variants={fadeInUp} className={styles.title}>
-              Transform Your Interiors with <span className="text-highlight">Premium</span> Wall Wrapping
-            </motion.h1>
-            <motion.p variants={fadeInUp} className={styles.subtitle}>
-              Upgrade your walls, furniture, and interiors without expensive renovation.
-            </motion.p>
-            <motion.div variants={fadeInUp}>
-              <a href="#services" className={`btn btn-primary ${styles.heroBtn}`}>
-                Explore Our Services <ArrowRight className={styles.btnIcon} size={20} />
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <ScrollShowcase />
 
       {/* About Section */}
       <section className="section" id="about">
@@ -97,8 +63,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      <ScrollShowcase />
 
       <div id="services">
         <Services />
