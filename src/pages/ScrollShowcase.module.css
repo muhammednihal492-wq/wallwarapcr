@@ -331,4 +331,10 @@
   .heroBtn {
     padding: 0.8rem 1.8rem;
   }
+
+  .scrollIndicatorText {
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+  }
 }

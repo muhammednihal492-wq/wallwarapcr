@@ -7,21 +7,21 @@ export default function Projects() {
     {
       id: 1,
       title: "Modern Kitchen Transformation",
-      before: "/assets/before_kitchen.png",
-      after: "/assets/after_kitchen.png"
+      before: "/assets/before_kitchen_new.png",
+      after: "/assets/after_kitchen_wrapped.png"
     },
     // Using the same placeholder for others or could use hero
     {
       id: 2,
-      title: "Luxury Bathroom Wrap",
-      before: "/assets/before_kitchen.png",
-      after: "/assets/hero_interior.png" // using hero as a placeholder 'after'
+      title: "Luxury Living Room Wrap",
+      before: "/assets/hero_interior.png",
+      after: "/assets/after_living_room_wrapped.png"
     },
     {
       id: 3,
       title: "Wardrobe Update",
-      before: "/assets/before_kitchen.png",
-      after: "/assets/about_wrap.png"
+      before: "/assets/before_wardrobe.png",
+      after: "/assets/after_wardrobe.png"
     }
   ];
 

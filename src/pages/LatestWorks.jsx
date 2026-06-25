@@ -19,7 +19,7 @@ export default function LatestWorks() {
       id: 3,
       name: "Residential Bathroom",
       description: "Waterproof wrapping over old tiles to create a seamless, contemporary spa-like bathroom experience.",
-      image: "/assets/about_wrap.png" // placeholder
+      image: "/assets/residential_bathroom.png"
     }
   ];
 

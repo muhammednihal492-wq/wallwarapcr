@@ -38,8 +38,11 @@ export default function ScrollShowcase() {
     // Clear canvas
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-    // Calculate scaling ratio (cover style)
-    const ratio = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
+    // Calculate scaling ratio (contain for mobile to fit to screen, cover for desktop)
+    const isMobile = window.innerWidth <= 768;
+    const ratio = isMobile
+      ? Math.min(canvasWidth / imgWidth, canvasHeight / imgHeight)
+      : Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
     const newWidth = imgWidth * ratio;
     const newHeight = imgHeight * ratio;
 
@@ -183,7 +186,7 @@ export default function ScrollShowcase() {
                 Luxury Interior Transformations
               </div>
               <h1 className={styles.heroTitle}>
-                Transform Your Interiors with <span className="text-highlight">Premium</span> Wall Wrapping
+                Transform Your Interiors with <span className="text-highlight">Premium</span> Wrapping
               </h1>
               <p className={styles.heroSubtitle}>
                 Upgrade your walls, furniture, and interiors without expensive renovation.

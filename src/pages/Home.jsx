@@ -29,7 +29,7 @@ export default function Home() {
             <div className={styles.imageBackdrop}></div>
             <img src="/assets/about_wrap.png" alt="Premium interior wrap application" className={styles.aboutImage} />
             <div className={styles.floatingBadge}>
-              <span className={styles.badgeNumber}>10+</span>
+              <span className={styles.badgeNumber}>5+</span>
               <span className={styles.badgeText}>Years<br/>Experience</span>
             </div>
           </motion.div>
