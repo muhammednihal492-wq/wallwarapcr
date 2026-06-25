@@ -7,6 +7,7 @@ import Guarantees from './Guarantees';
 import Materials from './Materials';
 import Services from './Services';
 import LatestWorks from './LatestWorks';
+import ScrollShowcase from './ScrollShowcase';
 
 export default function Home() {
   const fadeInUp = {
@@ -96,6 +97,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <ScrollShowcase />
 
       <div id="services">
         <Services />

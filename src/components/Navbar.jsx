@@ -6,18 +6,17 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeHash, setActiveHash] = useState('');
   const location = useLocation();
 
-  useEffect(() => {
-    // Determine active path logic to highlight current selection
-    if (location.pathname === '/contact') {
-      setActiveHash('/contact');
-    } else {
-      setActiveHash(location.hash || '/');
-    }
+  // Reset menu open state on route/hash location change during render to prevent cascading render effects
+  const [prevLocationKey, setPrevLocationKey] = useState(location.key);
+  if (location.key !== prevLocationKey) {
+    setPrevLocationKey(location.key);
     setIsOpen(false);
-  }, [location]);
+  }
+
+  // Determine active path logic to highlight current selection dynamically during render
+  const activeHash = location.pathname === '/contact' ? '/contact' : (location.hash || '/');
 
   useEffect(() => {
     const handleScroll = () => {
