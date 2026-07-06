@@ -43,7 +43,7 @@ export default function Services() {
     {
       title: "Architectural Film",
       icon: <Columns size={40} className={styles.icon} />,
-      image: "/assets/service_architectural.png",
+      image: "/assets/download.webp",
       advantages: ["Endless design possibilities", "Durable scratch-resistance", "Cost-effective remodeling"]
     }
   ];
