@@ -43,6 +43,26 @@ export default function Projects() {
         "/assets/before_wardrobe.png",
         "/assets/after_wardrobe.png"
       ]
+    },
+    {
+      id: 4,
+      title: "Apartment in SO Uptown",
+      before: "/assets/uptown_before.png",
+      after: "/assets/uptown_after.png",
+      gallery: [
+        "/assets/uptown_before.png",
+        "/assets/uptown_after.png"
+      ]
+    },
+    {
+      id: 5,
+      title: "Yachts",
+      before: "/assets/yacht_before.png",
+      after: "/assets/yacht_after.png",
+      gallery: [
+        "/assets/yacht_before.png",
+        "/assets/yacht_after.png"
+      ]
     }
   ];
 
@@ -88,7 +108,7 @@ export default function Projects() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Our Completed <span className="text-highlight">Projects</span>
+            Our Bespoke <span className="text-highlight">Projects</span>
           </motion.h1>
           <motion.p 
             className={styles.pageSubtitle}
