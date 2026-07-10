@@ -1,0 +1,263 @@
+.sectionWrapper {
+  background: radial-gradient(circle at 50% 30%, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Heading Section ── */
+.headingContainer {
+  max-width: 720px;
+  margin: 0 auto 80px auto;
+  text-align: center;
+}
+
+.smallLabel {
+  font-family: var(--font-subheading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-soft); /* Gold Accent */
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.mainHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-light); /* Off-white */
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.supportingText {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: var(--text-muted); /* Soft Grey */
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ── Cards Grid Layout ── */
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  position: relative;
+}
+
+/* ── Card Styling ── */
+.card {
+  background: rgba(14, 18, 16, 0.7); /* Matte/glass dark card bg */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  min-height: 380px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--gold-glow);
+}
+
+/* ── Icon Section ── */
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  color: var(--gold-soft); /* Gold */
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Card 1 Icon Glow */
+.card1:hover .iconWrapper {
+  filter: drop-shadow(0 0 8px var(--gold-glow-strong)) brightness(1.25);
+}
+
+/* Card 2 Icon Rotation */
+.card2:hover .iconWrapper {
+  transform: scale(1.1) rotate(3deg);
+}
+
+/* Card 3 Icon Shimmer */
+.shimmerContainer {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  border-radius: 4px;
+}
+
+.shimmerOverlay {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.card3:hover .shimmerOverlay {
+  animation: shimmerPass 0.8s ease-out forwards;
+}
+
+@keyframes shimmerPass {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* ── Accent Line Under Icon ── */
+.accentLine {
+  width: 24px;
+  height: 3px;
+  background-color: var(--gold-soft); /* Gold */
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .accentLine {
+  width: 48px;
+}
+
+/* ── Text Content ── */
+.cardTitle {
+  font-family: var(--font-subheading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light); /* Off-white */
+  margin-bottom: 15px;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: var(--text-muted); /* Soft Grey */
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+/* ── Bottom Badge ── */
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(217, 164, 65, 0.1); /* Soft Gold Pill */
+  color: var(--gold-soft);
+  font-family: var(--font-subheading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 100px;
+  margin-top: auto;
+  letter-spacing: 0.5px;
+}
+
+/* ── Connector Lines ── */
+.connectorLineHorizontal {
+  display: block;
+  position: absolute;
+  right: -40px;
+  top: 66px; /* Align with center of icon (40px pad + 26px half icon) */
+  width: 40px;
+  height: 1px;
+  background-color: var(--border-gold); /* Gold connector */
+  z-index: 1;
+}
+
+.connectorLineVertical {
+  display: none;
+}
+
+/* ── Responsive Styling ── */
+@media (max-width: 992px) {
+  .sectionWrapper {
+    padding: 100px 0;
+  }
+  
+  .cardsContainer {
+    gap: 30px;
+  }
+  
+  .connectorLineHorizontal {
+    right: -30px;
+    width: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionWrapper {
+    padding: 80px 0;
+  }
+  
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .card {
+    min-height: auto;
+    padding: 35px;
+  }
+  
+  /* Hide horizontal line on mobile */
+  .connectorLineHorizontal {
+    display: none;
+  }
+  
+  /* Show vertical connection line */
+  .connectorLineVertical {
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    left: 66px; /* Align with center of icon (35px pad + 26px half icon) */
+    width: 1px;
+    height: 40px;
+    background-color: var(--border-gold);
+    z-index: 1;
+  }
+}

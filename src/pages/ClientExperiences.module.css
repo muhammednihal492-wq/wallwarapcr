@@ -1,0 +1,524 @@
+.sectionWrapper {
+  background: radial-gradient(circle at 50% 30%, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+  padding: 140px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 420px minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+/* ── Left Column Info ── */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.smallLabel {
+  font-family: var(--font-subheading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.mainHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-light);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.supportingText {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Google Trust Bar ── */
+.trustBar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(217, 164, 65, 0.15);
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.googleIconWrapper {
+  color: var(--gold-soft);
+  display: flex;
+  align-items: center;
+}
+
+.trustInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.starsRow {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.star {
+  color: var(--gold-soft);
+}
+
+.star:hover {
+  filter: drop-shadow(0 0 4px var(--gold-soft));
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+.ratingText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ratingSubtext {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Slider Controls ── */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.sliderBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: transparent;
+  color: var(--gold-soft);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sliderBtn:hover:not(:disabled) {
+  background: var(--gold-gradient);
+  color: #050807;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(217, 164, 65, 0.2);
+}
+
+.sliderBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Left Column CTA Button ── */
+.readMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gold-soft);
+  border: 1px solid var(--border-gold);
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.readMoreBtn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: none;
+}
+
+.readMoreBtn:hover {
+  border-color: var(--gold-soft);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.readMoreBtn:hover::after {
+  left: 150%;
+  transition: left 0.8s ease-in-out;
+}
+
+.btnArrow {
+  transition: transform 0.3s ease;
+}
+
+.readMoreBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+/* ── Testimonials Slider ── */
+.sliderColumn {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: visible; /* Allows cards to bleed out beautifully */
+}
+
+.sliderViewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: var(--card-gap, 30px);
+  --card-width: 380px;
+  --card-gap: 30px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ── Card Design ── */
+.card {
+  width: var(--card-width);
+  background: rgba(14, 18, 16, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 380px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--gold-glow);
+}
+
+.quoteIcon {
+  color: rgba(217, 164, 65, 0.12);
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .quoteIcon {
+  transform: scale(1.15);
+}
+
+.cardStars {
+  display: flex;
+  gap: 3px;
+  color: var(--gold-soft);
+  margin-bottom: 20px;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.highlightText {
+  font-weight: 500;
+  color: var(--gold-soft);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(217, 164, 65, 0.1);
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: radial-gradient(circle at center, rgba(217, 164, 65, 0.2) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-subheading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold-soft);
+}
+
+.clientDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.clientName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+  position: relative;
+  display: inline-block;
+}
+
+.clientName::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--gold-soft);
+  transition: width 0.3s ease;
+}
+
+.card:hover .clientName::after {
+  width: 100%;
+}
+
+.clientLocation {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Verified Badge & Tooltip */
+.verifiedBadgeContainer {
+  position: relative;
+  margin-left: auto;
+}
+
+.verifiedBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold-soft);
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.verifiedBadge:hover {
+  opacity: 1;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: #0e1210;
+  border: 1px solid var(--border-gold-strong);
+  color: var(--text-light);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-family: var(--font-subheading);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.verifiedBadgeContainer:hover .tooltip {
+  opacity: 1;
+  transform: translateY(-8px);
+}
+
+/* ── Conversion CTA Section ── */
+.ctaSection {
+  background: radial-gradient(circle at 50% 30%, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+  padding: 100px 0 140px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaWrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  background: radial-gradient(circle at center, rgba(217, 164, 65, 0.06) 0%, transparent 70%), var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.ctaHeadline {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+}
+
+.ctaDescription {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ctaPrimary {
+  background: var(--gold-gradient);
+  color: #050807;
+  padding: 1rem 2.2rem;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 20px var(--gold-glow);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  background: var(--gold-gradient-hover);
+  box-shadow: 0 12px 28px var(--gold-glow-strong);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: var(--gold-soft);
+  border: 1px solid var(--border-gold-strong);
+  padding: 1rem 2.2rem;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.ctaSecondary:hover {
+  background: var(--gold-gradient);
+  color: #050807;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px var(--gold-glow);
+}
+
+/* ── Responsive Styling ── */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 50px;
+  }
+  
+  .leftColumn {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .trustBar {
+    max-width: 480px;
+  }
+  
+  .controlsRow {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionWrapper {
+    padding: 80px 0 60px 0;
+  }
+  
+  .sliderTrack {
+    --card-width: 78vw;
+    --card-gap: 20px;
+  }
+  
+  .card {
+    min-height: auto;
+    padding: 30px;
+  }
+  
+  .ctaSection {
+    padding: 60px 0 100px 0;
+  }
+  
+  .ctaWrapper {
+    padding: 40px 20px;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}

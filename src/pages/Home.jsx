@@ -6,8 +6,9 @@ import Projects from './Projects';
 import Guarantees from './Guarantees';
 import Materials from './Materials';
 import Services from './Services';
-import LatestWorks from './LatestWorks';
 import ScrollShowcase from './ScrollShowcase';
+import TransformationJourney from './TransformationJourney';
+import ClientExperiences from './ClientExperiences';
 
 export default function Home() {
 
@@ -64,6 +65,8 @@ export default function Home() {
         </div>
       </section>
 
+      <TransformationJourney />
+
       <div id="services">
         <Services />
       </div>
@@ -80,9 +83,7 @@ export default function Home() {
         <Materials />
       </div>
 
-      <div id="latest-works">
-        <LatestWorks />
-      </div>
+      <ClientExperiences />
     </div>
   );
 }
