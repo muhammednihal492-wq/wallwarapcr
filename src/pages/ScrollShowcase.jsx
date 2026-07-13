@@ -192,19 +192,22 @@ export default function ScrollShowcase() {
                 Elevating kitchens, wardrobes, walls, and office spaces with luxury vinyl wrapping solutions across the UAE with zero demolition.
               </p>
               <div>
-                <a href="#services" className={`btn btn-primary ${styles.heroBtn}`}>
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById('services');
+                    if (element) {
+                      const y = element.getBoundingClientRect().top + window.scrollY - 80;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                  }}
+                  className={`btn btn-primary ${styles.heroBtn}`}
+                  style={{ cursor: 'pointer', border: 'none' }}
+                >
                   Explore Our Services <ArrowRight className={styles.btnIcon} size={20} />
-                </a>
+                </button>
               </div>
             </motion.div>
-          </div>
-
-          {/* Minimal scroll indicator */}
-          <div className={styles.scrollIndicator}>
-            <span className={styles.scrollIndicatorText}>Scroll to Scrub Experience</span>
-            <div className={styles.scrollMouse}>
-              <div className={styles.scrollWheel}></div>
-            </div>
           </div>
         </div>
       )}
