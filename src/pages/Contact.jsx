@@ -3,6 +3,7 @@ import styles from './Contact.module.css';
 import { Phone, Mail, Instagram } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useState } from 'react';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -27,6 +28,11 @@ export default function Contact() {
 
   return (
     <div className={styles.contactPage}>
+      <SEO 
+        title="Contact Veespo | Premium Interior Wrapping Dubai, UAE"
+        description="Request a free consultation and digital rendering for kitchen wrapping, wardrobe wrapping, and architectural films in Dubai, Abu Dhabi, and the UAE."
+        keywords="contact interior wrapping Dubai, Veespo contact number, kitchen wrap rendering booking, wardrobe wrap consultation UAE"
+      />
       <div className={styles.pageHeader}>
         <div className={`container text-center`}>
           <motion.h1 
@@ -42,7 +48,7 @@ export default function Contact() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Ready for a transformation? We would love to hear from you.
+            Ready for a luxury transformation? Request your free rendering or book a consultation with the best interior wrapping company in Dubai. Our team serves clients across the UAE.
           </motion.p>
         </div>
       </div>
@@ -134,7 +140,34 @@ export default function Contact() {
         </div>
       </section>
 
-
+      {/* Full-width Map and Location Details Section */}
+      <section className="section bg-dark-soft" style={{ paddingTop: '0px' }}>
+        <div className="container">
+          <div className={styles.mapContainer}>
+            <div className={styles.mapInfo}>
+              <h3 className={styles.mapInfoTitle}>Official UAE Business Registration</h3>
+              <p className={styles.mapInfoText}>
+                Our headquarters is located at Sharjah Media City (SHAMS), U.A.E., providing mobilization support and professional installation units across Dubai, Abu Dhabi, Sharjah, Ajman, and all Emirates of the UAE.
+              </p>
+              <div style={{ color: 'var(--gold-soft)', fontWeight: 500, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.85rem', marginTop: '15px' }}>
+                * Serving all Emirates of UAE
+              </div>
+            </div>
+            <div className={styles.mapWrapper}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115421.32832599292!2d55.353349949999996!3d25.3571168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f4b50c6efeb%3A0xc3c5cb14ff7978e8!2sSharjah!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) grayscale(85%) contrast(95%)' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Veespo SHAMS Office Map Location"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

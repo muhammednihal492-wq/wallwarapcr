@@ -318,14 +318,24 @@
     bottom: 8rem;
   }
 
-  .heroTitle {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  .heroEyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
     margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0px;
   }
 
   .heroSubtitle {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
   }
 
   .heroBtn {

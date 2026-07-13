@@ -4,6 +4,13 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
+import ServiceDetail from './pages/ServiceDetail';
+import LocationDetail from './pages/LocationDetail';
+import FAQ from './pages/FAQ';
+import Projects from './pages/Projects';
+import Materials from './pages/Materials';
+import Guarantees from './pages/Guarantees';
+import About from './pages/About';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
@@ -67,6 +74,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
+          <Route path="/locations/:citySlug" element={<LocationDetail />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/materials" element={<Materials />} />
+          <Route path="/guarantees" element={<Guarantees />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
       <Footer />
@@ -75,3 +89,4 @@ function App() {
 }
 
 export default App;
+

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 import Projects from './Projects';
 import Guarantees from './Guarantees';
 import Materials from './Materials';
@@ -15,6 +16,11 @@ export default function Home() {
 
   return (
     <div className={styles.homeContainer}>
+      <SEO 
+        title="Veespo | Premium Interior Wrapping Dubai, UAE"
+        description="Veespo (WallWrap Creations) offers luxury interior wrapping in Dubai, UAE. Transform kitchens, wardrobes, offices, and walls with zero demolition."
+        keywords="Interior Wrapping Dubai, Best Interior Wrapping Company Dubai, Premium Interior Wrapping Dubai, Kitchen Wrapping Dubai, Wardrobe Wrapping Dubai, Bathroom Wrapping Dubai, Door Wrapping Dubai, Office Wrapping Dubai, Commercial Wrapping Dubai, Vinyl Wrapping Dubai, Architectural Film Dubai"
+      />
       <ScrollShowcase />
 
       {/* About Section */}
@@ -42,24 +48,25 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className={styles.sectionTag}>About WallWrap</div>
-            <h2 className={styles.sectionTitle}>Precision, Quality, and <span className="text-highlight">Modern Design</span></h2>
+            <div className={styles.sectionTag}>Best Interior Wrapping Company Dubai</div>
+            <h2 className={styles.sectionTitle}>Bespoke Surface Transformations in <span className="text-highlight">Dubai, UAE</span></h2>
             <div className="gold-divider"></div>
             <p className="mb-3">
-              WallWrap specializes in transforming interiors using advanced wrapping technology. Our solutions allow you to upgrade kitchens, bathrooms, wardrobes, doors, floors, and other interior surfaces without demolition or expensive renovations.
+              WallWrap Creations (Veespo) is recognized as the best interior wrapping company in Dubai, specializing in premium interior wrapping, wall wrap, and luxury architectural film installations across the UAE. We help homeowners, corporate offices, and commercial establishments elevate outdated cabinets, walls, and furniture without the high cost and mess of demolition.
             </p>
             <p className="mb-4">
-              We use highly durable, premium materials to deliver stylish and long-lasting interior finishes for homes and offices. Save time and money while achieving a high-end luxury look.
+              With years of local experience in Dubai, Abu Dhabi, and Sharjah, we are the leading renovation alternative for kitchen cabinet wrapping, wardrobe wrapping, and bathroom vanity refacing. Our expert team uses high-performance vinyl wrapping materials to deliver durable, waterproof surface transformations with precision workmanship and premium craftsmanship.
             </p>
             
             <ul className={styles.featuresList}>
-              <li><CheckCircle className="text-highlight" size={20} /> Zero Demolition Required</li>
-              <li><CheckCircle className="text-highlight" size={20} /> Heat & Water Resistant</li>
-              <li><CheckCircle className="text-highlight" size={20} /> Fraction of Renovation Costs</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Zero Demolition & No Mess Refacing</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Heat, Moisture & Slam-Resistant Films</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Save up to 70% Compared to Traditional Renovations</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Commercial Grade Fire-Rated Materials</li>
             </ul>
 
             <Link to="/contact" className={`btn btn-dark mt-4`}>
-              Get a Free Consultation
+              Request a Free Rendering & Consultation
             </Link>
           </motion.div>
         </div>

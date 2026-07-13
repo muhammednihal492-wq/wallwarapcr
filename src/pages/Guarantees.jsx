@@ -1,33 +1,39 @@
 import { motion } from 'framer-motion';
 import styles from './Guarantees.module.css';
 import { Droplets, Flame, Shield, Leaf } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Guarantees() {
   const guarantees = [
     {
-      title: "Waterproof",
-      description: "Our materials resist water damage and moisture, making them perfect for wet areas.",
+      title: "100% Waterproof Barrier",
+      description: "Our moisture-resistant architectural wraps are completely waterproof and prevent liquid ingress, making them highly suitable for bathroom vanities and high-humidity kitchen setups in Dubai.",
       icon: <Droplets size={50} className={styles.icon} />
     },
     {
-      title: "Heat Proof",
-      description: "Perfect for kitchens and high-temperature areas. Designed to withstand daily heat exposure.",
+      title: "Fire & Thermal Resistant",
+      description: "Tested and certified flame-retardant materials. Engineered to withstand high temperatures up to 110°C, making them completely safe for kitchen splashbacks and areas close to cooktops.",
       icon: <Flame size={50} className={styles.icon} />
     },
     {
-      title: "Scratch Proof",
-      description: "Durable surfaces designed for daily use, keeping your interiors looking new for years.",
+      title: "Impact & Scratch Proof",
+      description: "Durable multi-layer architectural films designed to handle daily wear, impacts, and abrasions, keeping wardrobe doors, tabletops, and office surfaces looking brand new.",
       icon: <Shield size={50} className={styles.icon} />
     },
     {
-      title: "Eco Friendly",
-      description: "Safe and sustainable materials for homes and offices. No toxic fumes during application.",
+      title: "Non-Toxic & Eco Friendly",
+      description: "Eco-friendly, VOC-free materials safe for homes and corporate workplaces. Our dust-free refacing process emits zero chemical vapors or smells during installation.",
       icon: <Leaf size={50} className={styles.icon} />
     }
   ];
 
   return (
     <div className={styles.guaranteesPage}>
+      <SEO 
+        title="Our Guarantees | Warranty & Material Certifications | Veespo"
+        description="Explore our fire-rated, waterproof, scratch-resistant, and eco-friendly architectural wrapping guarantees in Dubai, Abu Dhabi, and Sharjah."
+        keywords="wrapping guarantees Dubai, waterproof vinyl cabinet wrap, fire rated architectural film, scratch resistant wardrobe wrap"
+      />
       <div className={styles.pageHeader}>
         <div className={`container text-center`}>
           <motion.h1 
@@ -43,7 +49,7 @@ export default function Guarantees() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Premium materials engineered for longevity and performance.
+            Premium certified materials engineered for longevity and back by a comprehensive warranty.
           </motion.p>
         </div>
       </div>

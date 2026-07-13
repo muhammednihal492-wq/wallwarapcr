@@ -81,9 +81,9 @@ export default function TransformationJourney() {
       <div className={styles.container}>
         <motion.div className={styles.headingContainer} variants={headingVariants}>
           <span className={styles.smallLabel}>YOUR TRANSFORMATION JOURNEY</span>
-          <h2 className={styles.mainHeading}>Transform Your Space in Three Simple Steps</h2>
+          <h2 className={styles.mainHeading}>Transform Your Space with the Best Interior Wrapping Company in Dubai</h2>
           <p className={styles.supportingText}>
-            From your first idea to the final installation, we make every step simple, transparent, and professionally managed.
+            From your initial kitchen cabinet wrapping idea to final architectural film installation, we make the interior renovation alternative process simple, transparent, and luxury-finished.
           </p>
         </motion.div>
 
@@ -96,7 +96,7 @@ export default function TransformationJourney() {
             <div className={styles.accentLine}></div>
             <h3 className={styles.cardTitle}>FREE VISUAL RENDERING</h3>
             <p className={styles.cardDescription}>
-              Upload photos of your kitchen, wardrobe, office, or interior space and our team will prepare a professional visual rendering. Experience how your transformed space will look before installation begins, allowing you to confidently choose the perfect finish.
+              Upload photos of your kitchen, wardrobe, office, or interior walls, and our team will prepare a professional visual rendering. Experience how your luxury interior wrapping transformation will look before installation begins, allowing you to choose the perfect texture.
             </p>
             <span className={styles.badge}>Preview Before Installation</span>
             
@@ -122,7 +122,7 @@ export default function TransformationJourney() {
             <div className={styles.accentLine}></div>
             <h3 className={styles.cardTitle}>DESIGN & QUOTATION</h3>
             <p className={styles.cardDescription}>
-              After finalizing your preferred design, our specialists recommend the most suitable architectural films and wrapping materials. You'll receive a transparent quotation covering materials, workmanship, and project scope with complete clarity.
+              Our design specialists recommend the most durable architectural films and vinyl wrapping materials for your doors, cabinets, and walls. Receive a clear, transparent quotation covering materials, workmanship, and project scope with absolute clarity.
             </p>
             <span className={styles.badge}>Transparent Pricing</span>
 
@@ -151,7 +151,7 @@ export default function TransformationJourney() {
             <div className={styles.accentLine}></div>
             <h3 className={styles.cardTitle}>PROFESSIONAL INSTALLATION</h3>
             <p className={styles.cardDescription}>
-              Our experienced installation team carefully transforms your space using premium architectural films and vinyl wraps. Project completion timelines depend on the size and complexity of each project, ensuring exceptional quality and attention to detail.
+              Our experienced installation team carefully transforms your space using premium architectural films. As the leading provider of surface wrapping in Dubai, we ensure outstanding quality, slam-resistance, and attention to detail.
             </p>
             <span className={styles.badge}>Premium Craftsmanship</span>
           </motion.div>

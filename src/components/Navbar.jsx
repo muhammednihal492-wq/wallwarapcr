@@ -16,7 +16,7 @@ export default function Navbar() {
   }
 
   // Determine active path logic to highlight current selection dynamically during render
-  const activeHash = location.pathname === '/contact' ? '/contact' : (location.hash || '/');
+  const activeHash = location.hash || location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +47,9 @@ export default function Navbar() {
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/#services' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Materials', path: '/materials' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'Contact', path: '/contact' },
   ];
 

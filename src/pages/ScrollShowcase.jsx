@@ -183,13 +183,13 @@ export default function ScrollShowcase() {
               className={styles.heroNarrative}
             >
               <div className={styles.heroEyebrow}>
-                Luxury Interior Transformations
+                Best Interior Wrapping Company Dubai
               </div>
               <h1 className={styles.heroTitle}>
-                Transform Your Interiors with <span className="text-highlight">Premium</span> Wrapping
+                Premium <span className="text-highlight">Interior Wrapping</span> & Architectural Films
               </h1>
               <p className={styles.heroSubtitle}>
-                Upgrade your walls, furniture, and interiors without expensive renovation.
+                Elevating kitchens, wardrobes, walls, and office spaces with luxury vinyl wrapping solutions across the UAE with zero demolition.
               </p>
               <div>
                 <a href="#services" className={`btn btn-primary ${styles.heroBtn}`}>

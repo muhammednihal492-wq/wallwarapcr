@@ -7,9 +7,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.footerAbout}>
-
           <p className={styles.footerText}>
-            Transforming interiors with advanced wrapping technology. High-quality materials for stylish, durable interior finishes without demolition.
+            WallWrap Creations (Veespo) is the best interior wrapping company in Dubai, providing premium kitchen cabinet wrapping, wardrobe wrapping, and surface wrapping across the UAE with zero demolition.
           </p>
           <div className={styles.socialIcons}>
             <a href="https://wa.me/971589944602" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={20} /></a>
@@ -22,11 +21,27 @@ export default function Footer() {
           <h4 className={styles.footerTitle}>Quick Links</h4>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/#services">Services</Link></li>
-            <li><Link to="/#projects">Projects</Link></li>
-            <li><Link to="/#guarantees">Guarantees</Link></li>
-            <li><Link to="/#materials">Materials</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/projects">Bespoke Projects</Link></li>
+            <li><Link to="/materials">Material Finishes</Link></li>
+            <li><Link to="/faq">FAQ Support</Link></li>
+            <li><Link to="/contact">Get in Touch</Link></li>
           </ul>
+        </div>
+
+        <div className={styles.footerLinks}>
+          <h4 className={styles.footerTitle}>Service Areas</h4>
+          <ul>
+            <li><Link to="/locations/dubai">Dubai</Link></li>
+            <li><Link to="/locations/abu-dhabi">Abu Dhabi</Link></li>
+            <li><Link to="/locations/sharjah">Sharjah</Link></li>
+            <li><Link to="/locations/ajman">Ajman</Link></li>
+            <li><Link to="/locations/al-ain">Al Ain</Link></li>
+            <li><Link to="/guarantees" style={{ color: 'var(--gold-soft)', fontWeight: 500 }}>Our Guarantees</Link></li>
+          </ul>
+          <div style={{ fontSize: '0.8rem', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--gold-soft)', marginTop: '15px' }}>
+            * Serving all Emirates of UAE
+          </div>
         </div>
 
         <div className={styles.footerContact}>

@@ -166,6 +166,55 @@
   border-top: 1px solid var(--border-gold);
 }
 
+.mapContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 3rem;
+}
+
+.mapInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapInfoTitle {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.mapInfoText {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 164, 65, 0.15);
+  border-radius: 4px;
+}
+
+@media (max-width: 992px) {
+  .mapContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .mapWrapper {
+    height: 300px;
+  }
+}
+
+
 @media (max-width: 992px) {
   .contactGrid {
     grid-template-columns: 1fr;

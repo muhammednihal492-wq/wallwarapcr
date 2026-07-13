@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veespo.ae/sitemap.xml
