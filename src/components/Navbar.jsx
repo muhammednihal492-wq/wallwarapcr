@@ -18,15 +18,30 @@ export default function Navbar() {
   // Determine active path logic to highlight current selection dynamically during render
   const activeHash = location.hash || location.pathname;
 
+  const [showNavbar, setShowNavbar] = useState(true);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      if (location.pathname === '/') {
+        const isMobile = window.innerWidth <= 768;
+        const multiplier = isMobile ? 1.5 : 2.5;
+        const threshold = window.innerHeight * multiplier;
+        setShowNavbar(window.scrollY >= threshold);
+      } else {
+        setShowNavbar(true);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Removed manual hash listener as react-router useLocation handles it nicely
+    
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -54,7 +69,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${!showNavbar ? styles.hidden : ''}`}>
       <div className={`container ${styles.navContainer}`}>
         <Link to="/" onClick={() => handleNavClick('/')} className={styles.logo}>
           <img src="/rr.png" alt="Wallwrap Logo" className={styles.logoImage} />

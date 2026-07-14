@@ -8,7 +8,7 @@ export default function Footer() {
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.footerAbout}>
           <p className={styles.footerText}>
-            WallWrap Creations (Veespo) is the best interior wrapping company in Dubai, providing premium kitchen cabinet wrapping, wardrobe wrapping, and surface wrapping across the UAE with zero demolition.
+            WallWrap Creations is the best interior wrapping company in Dubai, providing premium kitchen cabinet wrapping, wardrobe wrapping, and surface wrapping across the UAE with zero demolition.
           </p>
           <div className={styles.socialIcons}>
             <a href="https://wa.me/971589944602" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={20} /></a>

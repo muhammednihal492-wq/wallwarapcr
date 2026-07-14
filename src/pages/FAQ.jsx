@@ -43,7 +43,7 @@ export default function FAQ() {
     },
     {
       q: "Do you provide a warranty on your wrapping services?",
-      a: "Yes. WallWrap Creations (Veespo) offers a comprehensive warranty on all professional installations covering peeling, bubbling, and material defects. We stand behind our precision workmanship and attention to detail."
+      a: "Yes. WallWrap Creations offers a comprehensive warranty on all professional installations covering peeling, bubbling, and material defects. We stand behind our precision workmanship and attention to detail."
     }
   ];
 

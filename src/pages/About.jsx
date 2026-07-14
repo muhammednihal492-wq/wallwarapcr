@@ -15,10 +15,10 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "WallWrap Creations (Veespo)",
+      "name": "WallWrap Creations",
       "url": "https://veespo.ae",
       "logo": "https://veespo.ae/rr.png",
-      "description": "Veespo (WallWrap Creations) is the premier local authority on luxury interior wrapping and architectural film installations in Dubai, Abu Dhabi, and Sharjah.",
+      "description": "WallWrap Creations is the premier local authority on luxury interior wrapping and architectural film installations in Dubai, Abu Dhabi, and Sharjah.",
       "sameAs": [
         "https://www.instagram.com/wallwrapcreations?igsh=MTMydDUydzMyNGxlbg=="
       ]
@@ -46,8 +46,8 @@ export default function About() {
   return (
     <div className={styles.aboutPage}>
       <SEO 
-        title="About Us | Premium Interior Wrapping Company Dubai | Veespo"
-        description="Learn about WallWrap Creations (Veespo), Dubai's leading interior wrapping specialists. Discover our story, expert installation team, and premium certifications."
+        title="About Us | Premium Interior Wrapping Company Dubai | WallWrap Creations"
+        description="Learn about WallWrap Creations, Dubai's leading interior wrapping specialists. Discover our story, expert installation team, and premium certifications."
         keywords="about Veespo, interior wrapping company Dubai, best cabinet wrap UAE, vinyl wrapping installers, architectural film team"
         schema={aboutSchema}
       />
@@ -61,7 +61,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <span className={styles.headerTag}>Trust & Craftsmanship</span>
-            <h1 className={styles.mainTitle}>About WallWrap Creations (Veespo)</h1>
+            <h1 className={styles.mainTitle}>About WallWrap Creations</h1>
             <p className={styles.pageSubtitle}>
               Dubai's premier authority on luxury interior wrapping and bespoke surface transformations.
             </p>
@@ -83,7 +83,7 @@ export default function About() {
             <h2 className={styles.sectionTitle}>A Modern Renovation Alternative</h2>
             <div className="gold-divider"></div>
             <p className={styles.storyPara}>
-              WallWrap Creations (Veespo) was established with a singular focus: to redefine how luxury interiors are updated in the United Arab Emirates. We recognized that homeowners and corporate businesses wanted to modernize their kitchens, wardrobes, and commercial areas, but dreaded the massive costs, noise, and weeks of dust associated with traditional demolition and cabinetry refitting.
+              WallWrap Creations was established with a singular focus: to redefine how luxury interiors are updated in the United Arab Emirates. We recognized that homeowners and corporate businesses wanted to modernize their kitchens, wardrobes, and commercial areas, but dreaded the massive costs, noise, and weeks of dust associated with traditional demolition and cabinetry refitting.
             </p>
             <p className={styles.storyPara}>
               By combining high-performance architectural films with master-installer precision, we introduced a clean, dust-free refacing alternative. Today, Veespo delivers flawless wraps that emulate authentic wood grains, natural stone, industrial concrete, and sleek matte paint surfaces for luxury properties across Dubai, Abu Dhabi, and Sharjah.

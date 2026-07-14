@@ -144,9 +144,10 @@ export default function ScrollShowcase() {
   });
 
   // Narrative Text Overlays: maps scroll progress to opacity and translation y
-  // Hero Step (visible initially, fades out as user scrolls)
-  const opacityHero = useTransform(scrollYProgress, [0.0, 0.15, 0.18], [1, 1, 0]);
-  const yHero = useTransform(scrollYProgress, [0.0, 0.15, 0.18], [0, 0, -40]);
+  // Hero Step (hidden initially, fades in when scroll reaches the end of the sequence)
+  const opacityHero = useTransform(scrollYProgress, [0.75, 0.85], [0, 1]);
+  const yHero = useTransform(scrollYProgress, [0.75, 0.85], [40, 0]);
+  const pointerEventsHero = useTransform(scrollYProgress, [0.75, 0.85], ['none', 'auto']);
 
   return (
     <div ref={containerRef} className={styles.scrollShowcaseContainer}>
@@ -179,7 +180,7 @@ export default function ScrollShowcase() {
           <div className={styles.narrativeContainer}>
             {/* Introductory Hero Section */}
             <motion.div 
-              style={{ opacity: opacityHero, y: yHero, pointerEvents: scrollYProgress.get() > 0.16 ? 'none' : 'auto' }}
+              style={{ opacity: opacityHero, y: yHero, pointerEvents: pointerEventsHero }}
               className={styles.heroNarrative}
             >
               <div className={styles.heroEyebrow}>

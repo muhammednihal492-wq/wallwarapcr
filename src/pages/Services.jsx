@@ -105,13 +105,10 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link to={`/services/${service.slug}`} className={`hover-card ${styles.serviceCard}`} style={{ display: 'block', textDecoration: 'none' }}>
-                  <div className={styles.serviceImageWrapper}>
-                    <img src={service.image} alt={service.altText} className={styles.serviceImage} />
-                  </div>
-                  <div className={styles.iconOverlay}>
-                    {service.icon}
-                  </div>
                   <div className={styles.cardContent}>
+                    <div className={styles.iconContainer}>
+                      {service.icon}
+                    </div>
                     <h3 className={styles.serviceTitle}>{service.title}</h3>
                     <ul className={styles.advantageList}>
                       {service.advantages.map((adv, i) => (

@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <div className={styles.homeContainer}>
       <SEO 
-        title="Veespo | Premium Interior Wrapping Dubai, UAE"
-        description="Veespo (WallWrap Creations) offers luxury interior wrapping in Dubai, UAE. Transform kitchens, wardrobes, offices, and walls with zero demolition."
+        title="WallWrap Creations | Premium Interior Wrapping Dubai, UAE"
+        description="WallWrap Creations offers luxury interior wrapping in Dubai, UAE. Transform kitchens, wardrobes, offices, and walls with zero demolition."
         keywords="Interior Wrapping Dubai, Best Interior Wrapping Company Dubai, Premium Interior Wrapping Dubai, Kitchen Wrapping Dubai, Wardrobe Wrapping Dubai, Bathroom Wrapping Dubai, Door Wrapping Dubai, Office Wrapping Dubai, Commercial Wrapping Dubai, Vinyl Wrapping Dubai, Architectural Film Dubai"
       />
       <ScrollShowcase />
@@ -52,7 +52,7 @@ export default function Home() {
             <h2 className={styles.sectionTitle}>Bespoke Surface Transformations in <span className="text-highlight">Dubai, UAE</span></h2>
             <div className="gold-divider"></div>
             <p className="mb-3">
-              WallWrap Creations (Veespo) is recognized as the best interior wrapping company in Dubai, specializing in premium interior wrapping, wall wrap, and luxury architectural film installations across the UAE. We help homeowners, corporate offices, and commercial establishments elevate outdated cabinets, walls, and furniture without the high cost and mess of demolition.
+              WallWrap Creations is recognized as the best interior wrapping company in Dubai, specializing in premium interior wrapping, wall wrap, and luxury architectural film installations across the UAE. We help homeowners, corporate offices, and commercial establishments elevate outdated cabinets, walls, and furniture without the high cost and mess of demolition.
             </p>
             <p className="mb-4">
               With years of local experience in Dubai, Abu Dhabi, and Sharjah, we are the leading renovation alternative for kitchen cabinet wrapping, wardrobe wrapping, and bathroom vanity refacing. Our expert team uses high-performance vinyl wrapping materials to deliver durable, waterproof surface transformations with precision workmanship and premium craftsmanship.

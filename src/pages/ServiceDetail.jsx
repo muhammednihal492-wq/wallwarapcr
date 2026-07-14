@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChefHat, Bath, Grid, DoorOpen, Building, Briefcase, 
-  Shield, CheckCircle, ChevronDown, ChevronUp, ArrowLeft, ArrowRight, Sun 
+  Shield, CheckCircle, ChevronDown, ChevronUp, ArrowLeft, ArrowRight, Sun,
+  X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import styles from './ServiceDetail.module.css';
@@ -271,6 +272,74 @@ export default function ServiceDetail() {
 
   const currentService = serviceData[serviceSlug];
 
+  const serviceImages = {
+    "kitchen-wrapping": [
+      "/assets/after_kitchen_wrapped.png",
+      "/assets/kichen/WhatsApp Image 2026-07-13 at 12.02.49 AM.jpeg",
+    ],
+    "wardrobe-wrapping": [
+      "/assets/before_wardrobe.png",
+      "/assets/after_wardrobe.png",
+      "/assets/service_wardrobe.png",
+    ],
+    "bathroom-wrapping": [
+      "/assets/service_bathroom.png",
+      "/assets/residential_bathroom.png",
+    ],
+    "door-wrapping": [
+      "/assets/service_door.png",
+    ],
+    "office-wrapping": [
+      "/assets/service_flooring.png",
+    ],
+    "commercial-wrapping": [
+      "/assets/uptown_before.png",
+      "/assets/uptown_after.png",
+      "/assets/yacht_after.png",
+    ],
+    "architectural-film": [],
+    "window-films": [
+      "/assets/service_outdoor_tinting.png",
+    ]
+  };
+
+  const images = serviceImages[serviceSlug] || [];
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  const openLightbox = (index) => {
+    setActiveImageIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
+  const handlePrevImage = () => {
+    setActiveImageIndex((prev) => 
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextImage = () => {
+    setActiveImageIndex((prev) => 
+      prev === images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') handlePrevImage();
+      if (e.key === 'ArrowRight') handleNextImage();
+    };
+    if (isLightboxOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLightboxOpen, activeImageIndex, images]);
+
   if (!currentService) {
     return (
       <div className={styles.notFoundPage}>
@@ -456,6 +525,93 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
+
+      {/* Transformation Gallery Section */}
+      {images.length > 0 && (
+        <section className="section bg-dark-soft">
+          <div className="container">
+            <h3 className={`text-center ${styles.sectionTitle}`}>Bespoke Transformation Gallery</h3>
+            <p className={`text-center ${styles.sectionSubtitle}`}>Real visual results and texture showcases from our recent projects.</p>
+            
+            <div className={styles.galleryGrid}>
+              {images.map((image, index) => (
+                <motion.div 
+                  key={index} 
+                  className={styles.galleryCard}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (index % 4) * 0.05 }}
+                  onClick={() => openLightbox(index)}
+                >
+                  <img src={image} alt={`${currentService.h1} detail ${index + 1}`} className={styles.galleryImage} />
+                  <div className={styles.galleryOverlay}>
+                    <span className={styles.zoomText}>View Project Detail</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <div className={styles.modalOverlay} onClick={closeLightbox}>
+            <motion.div 
+              className={styles.modalContent}
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={styles.modalHeader}>
+                <h3 className={styles.modalTitle}>{currentService.title.split(" | ")[0]} - Showcase</h3>
+                <button className={styles.closeButton} onClick={closeLightbox}>
+                  <X size={24} />
+                </button>
+              </div>
+              <div className={styles.modalBody}>
+                <div className={styles.mainImageContainer}>
+                  <button className={styles.navButton} onClick={handlePrevImage} title="Previous Image">
+                    <ChevronLeft size={24} />
+                  </button>
+                  
+                  <div className={styles.imagePresenter}>
+                    <img 
+                      src={images[activeImageIndex]} 
+                      alt={`Gallery view ${activeImageIndex + 1}`} 
+                      className={styles.modalImage} 
+                    />
+                  </div>
+
+                  <button className={styles.navButton} onClick={handleNextImage} title="Next Image">
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
+
+                <div className={styles.imageCounter}>
+                  Image {activeImageIndex + 1} of {images.length}
+                </div>
+
+                <div className={styles.thumbnailsRow}>
+                  {images.map((image, index) => (
+                    <div 
+                      key={index} 
+                      className={`${styles.thumbnailWrapper} ${activeImageIndex === index ? styles.activeThumbnail : ''}`}
+                      onClick={() => setActiveImageIndex(index)}
+                    >
+                      <img src={image} alt={`Thumbnail ${index + 1}`} className={styles.thumbnailImage} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Ultimate long-form SEO Guide Section (Ensures 1000+ words) */}
       <section className="section bg-dark">

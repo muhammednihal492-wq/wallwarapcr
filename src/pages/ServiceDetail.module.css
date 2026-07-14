@@ -606,3 +606,277 @@
   }
 }
 
+/* ── Gallery Section ── */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.galleryCard {
+  position: relative;
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  cursor: pointer;
+  background-color: #0b0f0e;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galleryCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--gold-glow);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.galleryCard:hover .galleryImage {
+  transform: scale(1.05);
+}
+
+.galleryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 8, 7, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.galleryCard:hover .galleryOverlay {
+  opacity: 1;
+}
+
+.zoomText {
+  color: var(--gold-soft);
+  font-family: var(--font-subheading);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--border-gold);
+  padding: 8px 16px;
+  border-radius: 2px;
+  background: rgba(5, 8, 7, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Lightbox Modal ── */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(5, 8, 7, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.modalContent {
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 40px var(--gold-glow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.modalTitle {
+  font-size: 1.4rem;
+  color: var(--text-light);
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--gold-soft);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.closeButton:hover {
+  color: var(--text-light);
+  transform: scale(1.1);
+}
+
+.modalBody {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mainImageContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 480px;
+  background-color: #0b0f0e;
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.imagePresenter {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.navButton {
+  background-color: rgba(5, 8, 7, 0.7);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-soft);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  margin: 0 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.navButton:hover {
+  background-color: var(--border-gold);
+  color: var(--text-light);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+.imageCounter {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.thumbnailsRow {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.thumbnailWrapper {
+  width: 80px;
+  height: 60px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.thumbnailWrapper:hover {
+  opacity: 0.8;
+  border-color: var(--border-gold-strong);
+}
+
+.activeThumbnail {
+  opacity: 1;
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .galleryCard {
+    height: 150px;
+  }
+
+  .modalContent {
+    max-height: 95vh;
+  }
+  .modalHeader {
+    padding: 1rem 1.5rem;
+  }
+  .modalTitle {
+    font-size: 1.2rem;
+  }
+  .modalBody {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  .mainImageContainer {
+    height: 320px;
+  }
+  .navButton {
+    width: 36px;
+    height: 36px;
+    margin: 0 0.5rem;
+  }
+  .thumbnailWrapper {
+    width: 60px;
+    height: 45px;
+  }
+}
+
