@@ -19,7 +19,7 @@ export default function LatestWorks() {
       id: 3,
       name: "Residential Bathroom",
       description: "Waterproof wrapping over old tiles to create a seamless, contemporary spa-like bathroom experience.",
-      image: "/assets/residential_bathroom.png"
+      image: "/assets/about_wrap.png" // placeholder
     }
   ];
 
@@ -45,7 +45,7 @@ export default function LatestWorks() {
         </div>
       </div>
 
-      <section className="section">
+      <section className="section bg-light">
         <div className={`container ${styles.worksContainer}`}>
           {works.map((work, index) => (
             <motion.div 
