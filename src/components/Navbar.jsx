@@ -6,73 +6,43 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState('');
   const location = useLocation();
 
-  // Reset menu open state on route/hash location change during render to prevent cascading render effects
-  const [prevLocationKey, setPrevLocationKey] = useState(location.key);
-  if (location.key !== prevLocationKey) {
-    setPrevLocationKey(location.key);
+  useEffect(() => {
+    // Determine active path logic to highlight current selection
+    if (location.pathname === '/contact') {
+      setActiveHash('/contact');
+    } else {
+      setActiveHash(location.hash || '/');
+    }
     setIsOpen(false);
-  }
-
-  // Determine active path logic to highlight current selection dynamically during render
-  const activeHash = location.hash || location.pathname;
-
-  const [showNavbar, setShowNavbar] = useState(true);
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
-      if (location.pathname === '/') {
-        const isMobile = window.innerWidth <= 768;
-        const multiplier = isMobile ? 1.5 : 2.5;
-        const threshold = window.innerHeight * multiplier;
-        setShowNavbar(window.scrollY >= threshold);
-      } else {
-        setShowNavbar(true);
-      }
     };
-    
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, [location.pathname]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Removed manual hash listener as react-router useLocation handles it nicely
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
-  const handleNavClick = (path) => {
-    setIsOpen(false);
-    if (path.includes('#') && location.pathname === '/' && location.hash === path.substring(path.indexOf('#'))) {
-      const id = path.split('#')[1];
-      const element = document.getElementById(id);
-      if (element) {
-        const y = element.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    } else if (path === '/' && location.pathname === '/' && !location.hash) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
 
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/#services' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Materials', path: '/materials' },
-    { name: 'FAQ', path: '/faq' },
+    { name: 'Latest Works', path: '/#latest-works' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${!showNavbar ? styles.hidden : ''}`}>
+    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.navContainer}`}>
-        <Link to="/" onClick={() => handleNavClick('/')} className={styles.logo}>
-          <img src="/rr.png" alt="Wallwrap Logo" className={styles.logoImage} />
+        <Link to="/" className={styles.logo}>
+          Wall<span className="text-highlight">Wrap</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -81,12 +51,12 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.path}
-              onClick={() => handleNavClick(link.path)}
               className={`${styles.navLink} ${activeHash === (link.path.includes('#') ? link.path.split('/')[1] : link.path) ? styles.active : ''}`}
             >
               {link.name}
             </Link>
           ))}
+          <Link to="/contact" className={`btn btn-primary ${styles.ctaBtn}`}>Get a Quote</Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -100,12 +70,13 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.path}
-              onClick={() => handleNavClick(link.path)}
+              onClick={() => setIsOpen(false)}
               className={`${styles.mobileNavLink} ${activeHash === (link.path.includes('#') ? link.path.split('/')[1] : link.path) ? styles.active : ''}`}
             >
               {link.name}
             </Link>
           ))}
+          <Link to="/contact" onClick={() => setIsOpen(false)} className={`btn btn-primary ${styles.mobileCtaBtn}`}>Get a Quote</Link>
         </div>
       </div>
     </nav>

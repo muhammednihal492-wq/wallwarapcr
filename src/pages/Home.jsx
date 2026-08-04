@@ -2,29 +2,52 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import SEO from '../components/SEO';
 import Projects from './Projects';
 import Guarantees from './Guarantees';
 import Materials from './Materials';
 import Services from './Services';
-import ScrollShowcase from './ScrollShowcase';
-import TransformationJourney from './TransformationJourney';
-import ClientExperiences from './ClientExperiences';
+import LatestWorks from './LatestWorks';
 
 export default function Home() {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
 
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+  };
 
   return (
     <div className={styles.homeContainer}>
-      <SEO 
-        title="WallWrap Creations | Premium Interior Wrapping Dubai, UAE"
-        description="WallWrap Creations offers luxury interior wrapping in Dubai, UAE. Transform kitchens, wardrobes, offices, and walls with zero demolition."
-        keywords="Interior Wrapping Dubai, Best Interior Wrapping Company Dubai, Premium Interior Wrapping Dubai, Kitchen Wrapping Dubai, Wardrobe Wrapping Dubai, Bathroom Wrapping Dubai, Door Wrapping Dubai, Office Wrapping Dubai, Commercial Wrapping Dubai, Vinyl Wrapping Dubai, Architectural Film Dubai"
-      />
-      <ScrollShowcase />
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroOverlay}></div>
+        <div className={`container ${styles.heroContent}`}>
+          <motion.div 
+            className={styles.heroText}
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.h1 variants={fadeInUp} className={styles.title}>
+              Transform Your Interiors with <span className="text-highlight">Premium</span> Wall Wrapping
+            </motion.h1>
+            <motion.p variants={fadeInUp} className={styles.subtitle}>
+              Upgrade your walls, furniture, and interiors without expensive renovation.
+            </motion.p>
+            <motion.div variants={fadeInUp}>
+              <a href="#services" className={`btn btn-primary ${styles.heroBtn}`}>
+                Explore Our Services <ArrowRight className={styles.btnIcon} size={20} />
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* About Section */}
-      <section className="section" id="about">
+      <section className="section bg-light" id="about">
         <div className={`container ${styles.aboutGrid}`}>
           <motion.div 
             className={styles.aboutImageWrapper}
@@ -36,7 +59,7 @@ export default function Home() {
             <div className={styles.imageBackdrop}></div>
             <img src="/assets/about_wrap.png" alt="Premium interior wrap application" className={styles.aboutImage} />
             <div className={styles.floatingBadge}>
-              <span className={styles.badgeNumber}>5+</span>
+              <span className={styles.badgeNumber}>10+</span>
               <span className={styles.badgeText}>Years<br/>Experience</span>
             </div>
           </motion.div>
@@ -48,31 +71,27 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className={styles.sectionTag}>Best Interior Wrapping Company Dubai</div>
-            <h2 className={styles.sectionTitle}>Bespoke Surface Transformations in <span className="text-highlight">Dubai, UAE</span></h2>
-            <div className="gold-divider"></div>
+            <div className={styles.sectionTag}>About WallWrap</div>
+            <h2 className={styles.sectionTitle}>Precision, Quality, and <span className="text-highlight">Modern Design</span></h2>
             <p className="mb-3">
-              WallWrap Creations is recognized as the best interior wrapping company in Dubai, specializing in premium interior wrapping, wall wrap, and luxury architectural film installations across the UAE. We help homeowners, corporate offices, and commercial establishments elevate outdated cabinets, walls, and furniture without the high cost and mess of demolition.
+              WallWrap specializes in transforming interiors using advanced wrapping technology. Our solutions allow you to upgrade kitchens, bathrooms, wardrobes, doors, floors, and other interior surfaces without demolition or expensive renovations.
             </p>
             <p className="mb-4">
-              With years of local experience in Dubai, Abu Dhabi, and Sharjah, we are the leading renovation alternative for kitchen cabinet wrapping, wardrobe wrapping, and bathroom vanity refacing. Our expert team uses high-performance vinyl wrapping materials to deliver durable, waterproof surface transformations with precision workmanship and premium craftsmanship.
+              We use highly durable, premium materials to deliver stylish and long-lasting interior finishes for homes and offices. Save time and money while achieving a high-end luxury look.
             </p>
             
             <ul className={styles.featuresList}>
-              <li><CheckCircle className="text-highlight" size={20} /> Zero Demolition & No Mess Refacing</li>
-              <li><CheckCircle className="text-highlight" size={20} /> Heat, Moisture & Slam-Resistant Films</li>
-              <li><CheckCircle className="text-highlight" size={20} /> Save up to 70% Compared to Traditional Renovations</li>
-              <li><CheckCircle className="text-highlight" size={20} /> Commercial Grade Fire-Rated Materials</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Zero Demolition Required</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Heat & Water Resistant</li>
+              <li><CheckCircle className="text-highlight" size={20} /> Fraction of Renovation Costs</li>
             </ul>
 
             <Link to="/contact" className={`btn btn-dark mt-4`}>
-              Request a Free Rendering & Consultation
+              Get a Free Consultation
             </Link>
           </motion.div>
         </div>
       </section>
-
-      <TransformationJourney />
 
       <div id="services">
         <Services />
@@ -90,7 +109,9 @@ export default function Home() {
         <Materials />
       </div>
 
-      <ClientExperiences />
+      <div id="latest-works">
+        <LatestWorks />
+      </div>
     </div>
   );
 }

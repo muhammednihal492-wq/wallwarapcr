@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import styles from './Materials.module.css';
-import SEO from '../components/SEO';
 
 export default function Materials() {
   const materials = [
@@ -15,12 +14,7 @@ export default function Materials() {
 
   return (
     <div className={styles.materialsPage}>
-      <SEO 
-        title="Material Finishes & Textures | Veespo Dubai Wrapping"
-        description="Browse our architectural wrap textures in Dubai. Real-wood feel, leather finishes, solid luxury mattes, metallic surfaces, and natural stone styles."
-        keywords="interior wrapping materials Dubai, architectural films textures UAE, vinyl wrap finishes"
-      />
-      <div className={styles.pageHeader}>
+       <div className={styles.pageHeader}>
         <div className={`container text-center`}>
           <motion.h1 
              initial={{ opacity: 0, y: -20 }}
@@ -40,7 +34,7 @@ export default function Materials() {
         </div>
       </div>
 
-      <section className="section">
+      <section className="section bg-light">
         <div className="container">
           <div className={styles.materialGrid}>
             {materials.map((mat, index) => (
